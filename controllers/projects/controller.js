@@ -10,4 +10,9 @@ function post(req, res) {
   return res.status(201).json({ message: 'Project Created' });
 }
 
-module.exports = { get, post };
+function getByRisk(req, res) {
+  const projects = projectsService.findByRisk();
+  return res.json(projects);
+}
+
+module.exports = { get, post, getByRisk };

@@ -8,4 +8,19 @@ function findAll() {
   return projects;
 }
 
-module.exports = { create, findAll };
+function findByRisk() {
+  const projectRisk = projects.filter(
+    (o) => {
+      if (o.reports.indexOf('Red') >= 0) {
+        return o;
+      }
+      if (o.reports.filter(a => a === 'Yellow').length > 1) {
+        return o;
+      }
+    }
+  );
+  return projectRisk;
+}
+
+
+module.exports = { create, findAll, findByRisk };
