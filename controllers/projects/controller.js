@@ -2,7 +2,7 @@ const projectsService = require('../../services/projects');
 
 function get(req, res) {
   const projects = projectsService.findAll();
-  return res.json(projects);
+  return res.status(200).json(projects);
 }
 
 function post(req, res) {
@@ -12,7 +12,7 @@ function post(req, res) {
 
 function getByRisk(req, res) {
   const projects = projectsService.findByRisk();
-  return res.json(projects);
+  return res.status(200).json(projects);
 }
 
 module.exports = { get, post, getByRisk };
