@@ -10,17 +10,16 @@ function findAll() {
 
 function findByRisk() {
   const projectRisk = projects.filter(
-    (o) => {
-      if (o.reports.indexOf('Red') >= 0) {
-        return o;
+    (project) => {
+      if (project.reports.indexOf('Red') >= 0) {
+        return project;
       }
-      if (o.reports.filter(a => a === 'Yellow').length > 1) {
-        return o;
+      if (project.reports.filter(report => report === 'Yellow').length > 1) {
+        return project;
       }
     }
   );
   return projectRisk;
 }
-
 
 module.exports = { create, findAll, findByRisk };
